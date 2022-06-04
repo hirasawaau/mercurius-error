@@ -1,0 +1,33 @@
+{
+  "name": "mercurius-error",
+  "version": "1.0.0",
+  "description": "Mercurius error exception inspired from Apollo Server Error",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hirasawaau/mercurius-error.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hirasawaau/mercurius-error/issues"
+  },
+  "homepage": "https://github.com/hirasawaau/mercurius-error#readme",
+  "peerDependencies": {
+    "mercurius": "^9.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "eslint": "^8.17.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "mercurius": "^9.8.0",
+    "prettier": "^2.6.2",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.3"
+  }
+}
