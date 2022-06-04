@@ -4,29 +4,7 @@ on:
     branches:
       - 'main'
 jobs:
-  lint:
-    runs-on: ubuntu-20.04
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: Install Module
-        run: npm i
-      - name: Lint
-        run: npm run lint
-  test:
-    runs-on: ubuntu-20.04
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: Install Module
-        run: npm i
-      - name: 'Test'
-        run: npm run test:cov
-
   release:
-    needs:
-      - 'lint'
-      - 'test'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
