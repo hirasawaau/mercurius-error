@@ -1,0 +1,43 @@
+name: Release
+on:
+  push:
+    branches:
+      - 'main'
+jobs:
+  lint:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Module
+        run: npm i
+      - name: Lint
+        run: npm run lint
+  test:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Module
+        run: npm i
+      - name: 'Test'
+        run: npm run test:cov
+
+  release:
+    needs:
+      - 'lint'
+      - 'test'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+      - run: npm i
+      - run: npm run build
+      - run: npm run semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

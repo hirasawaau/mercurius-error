@@ -2,9 +2,11 @@
   "name": "mercurius-error",
   "version": "1.0.0",
   "description": "Mercurius error exception inspired from Apollo Server Error",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,8 @@
     "mercurius": "^9.0.0"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
     "eslint": "^8.17.0",
@@ -27,7 +31,21 @@
     "eslint-plugin-prettier": "^4.0.0",
     "mercurius": "^9.8.0",
     "prettier": "^2.6.2",
+    "semantic-release": "^19.0.2",
     "ts-node": "^10.8.1",
     "typescript": "^4.7.3"
-  }
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ]
+  },
+  "private": false
 }
